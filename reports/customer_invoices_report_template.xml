@@ -20,5 +20,12 @@
         </t>
     </template>
 
-    <template id="report_invoices_document">
+<template id="report_invoices_document">
+    <t t-call="web.external_layout">
+        <div class="page">
+            <img t-att-src="'/customer_invoices_report/static/img/logo.png'" alt="Logo" style="width:300px;height:100px;"/>
+            <!-- The rest of the report content -->
+        </div>
+    </t>
+</template>
        
