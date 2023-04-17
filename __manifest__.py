@@ -8,6 +8,7 @@
     'data': [
         'views/customer_invoices_report.xml',
         'reports/customer_invoices_report_template.xml',
+        'reports/report_template.xml',
     ],
     'application': False,
 }

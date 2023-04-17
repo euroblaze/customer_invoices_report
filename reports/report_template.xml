@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_invoices_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+
+                    <tr t-foreach="original_list" t-as="res_1">
+
+                        <div>
+                            <!--                        <img t-att-src="image_data_uri(o.company_id.logo)"-->
+                            <!--                             style="width:50%"/>-->
+
+                            <br/>
+
+                            <div style="padding:10px" class="row mt64">
+
+                                <div class="col-2">
+                                    <strong>Name:</strong>
+                                </div>
+
+                                <div class="col-4" style="border-bottom: 1px solid black;">
+                                    <span t-field="o.name"/>
+                                </div>
+
+                            </div>
+
+                            <div style="padding:10px" class="row mt64">
+
+                                <div class="col-2">
+                                    <strong>Address:</strong>
+                                </div>
+
+                                <div class="col-4" style="border-bottom: 1px solid black;">
+                                    <span t-field="o.street"/>
+                                    <span t-field="o.street2"/>
+                                    <span t-field="o.city"/>
+                                </div>
+
+                            </div>
+
+                            <div style="padding:10px" class="row mt64">
+
+                                <div class="col-2">
+                                    <strong>Contact:</strong>
+                                </div>
+
+                                <div class="col-4" style="border-bottom: 1px solid black;">
+                                    <span t-field="o.phone"/>
+                                    &#160; &#160; &#160; / &#160; &#160; &#160;
+                                    <span t-field="o.mobile"/>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <br/>
+
+                        <div class="page">
+                            <table class="table table-condensed">
+
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Sr.No</th>
+                                        <th class="text-center">Invoice Number</th>
+                                        <th class="text-center">Invoice Date</th>
+                                        <th class="text-center">Amount Paid</th>
+                                        <th class="text-center">Amount Pending</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <t t-set="item_count" t-value="1"/>
+
+                                    <tr t-foreach="res_1['original_lines']" t-as="invo">
+
+                                        <td class="text-center">
+                                            <span t-esc="item_count"/>
+                                            <t t-set="item_count" t-value="item_count + 1"/>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span t-esc="invo['name']"/>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span t-esc="invo['invoice_date']"/>
+                                        </td>
+
+                                        <td class="text-center">
+<span t-esc="invo['amount_total']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span t-esc="invo['amount_residual']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <strong></strong>
+                                        </td>
+
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <strong>
+                                            </strong>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <strong>
+                                                <span t-esc="res_1['total_amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            </strong>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <strong>
+                                                <span t-esc="res_1['total_residual']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            </strong>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="footer">
+                            <div class="text-center" style="border-top: 1px solid black;">
+                                Salesperson:
+                                <span t-field="o.current_user"/>
+                            </div>
+                        </div>
+
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+       
