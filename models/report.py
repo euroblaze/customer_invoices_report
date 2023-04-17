@@ -65,16 +65,3 @@ class CustomerInvoicesReport(models.AbstractModel):
 
             'original_list': original_list,
         }
-    #
-    # def _get_invoices(self, docs):
-    #     Invoice = self.env['account.move']
-    #     domain = [
-    #         ('partner_id', '=', docs.id),
-    #         ('move_type', '=', 'out_invoice'),
-    #         ('state', '!=', 'draft'),
-    #         ('invoice_date', '>=', fields.Date.to_string(fields.date.today() - relativedelta(years=5))),
-    #     ]
-    #     return Invoice.docs(domain)
-    #
-    # def _get_salesperson(self, docs):
-    #     return docs.user_id.name or ''

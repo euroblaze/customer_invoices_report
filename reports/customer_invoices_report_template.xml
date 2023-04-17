@@ -30,25 +30,6 @@
         <field name="paperformat_id" ref="report_qweb_paperformat1"/>
     </record>
 
-    <!--    <template id="report_invoices">-->
-    <!--        <t t-call="web.html_container">-->
-    <!--            <t t-foreach="docs" t-as="customer">-->
-    <!--                <t t-set="invoices" t-value="get_invoices(customer)"/>-->
-    <!--&lt;!&ndash;                <t t-set="salesperson" t-value="get_salesperson(customer)"/>&ndash;&gt;-->
-    <!--                <t t-call="customer_invoices_report.report_invoices_document"/>-->
-    <!--            </t>-->
-    <!--        </t>-->
-    <!--    </template>-->
-
-    <!--    <template id="report_invoices_document">-->
-    <!--        <t t-call="web.external_layout">-->
-    <!--            <div class="page">-->
-    <!--                <img t-att-src="'/customer_invoices_report/static/img/logo.png'" alt="Logo"-->
-    <!--                     style="width:300px;height:100px;"/>-->
-    <!--                &lt;!&ndash; The rest of the report content &ndash;&gt;-->
-    <!--            </div>-->
-    <!--        </t>-->
-    <!--    </template>-->
 
 </odoo>
        
